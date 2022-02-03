@@ -125,7 +125,7 @@ body {
 }
 .card-image {
     grid-area: image;
-    background: url("https://dl.dropbox.com/s/4qzgp9o7roeybmu/rock.png");
+    background: url("rock.png");
     background-repeat: no-repeat;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -199,7 +199,7 @@ body {
 }
 .card-image2 {
     grid-area: image;
-    background: url("https://dl.dropbox.com/s/p3dfuzj3ll0z0fa/paper.png");
+    background: url("paper.png");
     background-repeat: no-repeat;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -273,7 +273,7 @@ body {
 }
 .card-image3 {
     grid-area: image;
-    background: url("https://dl.dropbox.com/s/tereuyw3usqpyfs/scissors.png");
+    background: url("scissors.png");
     background-repeat: no-repeat;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
