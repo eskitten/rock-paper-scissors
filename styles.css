@@ -331,7 +331,7 @@ body {
 
 
 
-@media screen and (max-width: 360px) {
+@media screen and (min-width: 360px) and (max-width: 360px) {
     * {
     margin: 0;
     padding: 0;
@@ -538,7 +538,7 @@ body {
 
 
 
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) and (max-width: 375px) {
     * {
     margin: 0;
     padding: 0;
@@ -745,7 +745,7 @@ body {
 
 
 
-@media screen and (max-width: 390px) {
+@media screen and (min-width: 390px) and (max-width: 390px) {
     * {
     margin: 0;
     padding: 0;
@@ -953,7 +953,7 @@ body {
 
 
 
-@media screen and (max-width: 412px) {
+@media screen and (min-width: 412px) and (max-width: 412px) {
     * {
     margin: 0;
     padding: 0;
@@ -1170,7 +1170,7 @@ body {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 768px) {
     * {
     margin: 0;
     padding: 0;
@@ -1384,7 +1384,7 @@ body {
 }
 
 
-@media screen and (max-width: 820px) {
+@media screen and (min-width: 820px) and (max-width: 820px) {
     * {
     margin: 0;
     padding: 0;
