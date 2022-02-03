@@ -1,0 +1,1598 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+.title,
+#round,
+#results, #finalResult {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    z-index: 69;
+}
+#finalResult {
+    padding-top: 20px;
+}
+#results {
+    padding-bottom: 30px;
+}
+.title {
+    margin-top: 80px;
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
+    font-family: 'Short Stack', cursive;
+}
+#round {
+    color: white;
+    font-size: 38px;
+    font-family: 'Fjalla One', sans-serif;
+}
+#start, #continued, #final, #playAgain {
+    width: 180px;
+    height: 55px;
+    color: white;
+    border: 3px solid #221e1e;
+    box-shadow: 0px 0px 0px 5px white;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin: auto;
+    background: rgb(241,186,244);
+    background: linear-gradient(90deg, rgba(241,186,244,1) 0%, rgba(177,153,255,1) 50%, rgba(102,185,255,1) 100%);
+}
+#moveRock, #movePaper, #moveScissors,
+#results, #continued, #final, #playAgain {
+    display: none;
+    justify-content: center;
+    margin: auto;
+}
+.container {
+    min-height: 8em;
+    position: relative; 
+}
+#center-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    letter-spacing: 50px;
+}
+.center-area:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+#card-one {
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+}
+#card-two {
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+#card-three {
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+.card {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-image {
+    grid-area: image;
+    background: url("https://dl.dropbox.com/s/4qzgp9o7roeybmu/rock.png");
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -30px;
+    background-size: cover;
+}
+.card-txt {
+    grid-area: text;
+}
+.card-text, .header {
+    color: #f1baf4;
+    font-size: 16px;
+    font-weight: 800;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 15px;
+    font-weight: 300;
+}
+.card-txt h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(101, 142, 255);
+}
+.card-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6)
+}
+
+.card2 {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-image2 {
+    grid-area: image;
+    background: url("https://dl.dropbox.com/s/p3dfuzj3ll0z0fa/paper.png");
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -30px;
+    background-size: cover;
+}
+.card-txt2 {
+    grid-area: text;
+}
+.card-text2, .header2 {
+    color: #66b9ff;
+    font-size: 16px;
+    font-weight: 800;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 15px;
+    font-weight: 300;
+}
+.card-txt2 h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(145, 98, 255);
+}
+.card-stats2 {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6)
+}
+
+.card3 {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-image3 {
+    grid-area: image;
+    background: url("https://dl.dropbox.com/s/tereuyw3usqpyfs/scissors.png");
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -30px;
+    background-size: cover;
+}
+.card-txt3 {
+    grid-area: text;
+}
+.card-text3, .header3 {
+    color: #66b9ff;
+    font-size: 16px;
+    font-weight: 800;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 15px;
+    font-weight: 300;
+}
+.card-txt3 h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(255, 124, 233);
+}
+.card-stats3 {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6)
+}
+
+
+
+@media screen and (max-width: 360px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+#card-one {
+    position: absolute;
+    top: -100px;
+    left: -230px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.5);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: -100px;
+    left: 50px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: -100px;
+    left: 170px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+}
+
+
+
+@media screen and (max-width: 375px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+#card-one {
+    position: absolute;
+    top: -100px;
+    left: -230px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.5);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: -100px;
+    left: 50px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: -100px;
+    left: 171px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+}
+
+
+
+@media screen and (max-width: 390px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+#card-one {
+    position: absolute;
+    top: -100px;
+    left: -230px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.5);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: -100px;
+    left: 60px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: -100px;
+    left: 190px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-txt3 h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(255, 124, 233);
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+}
+
+
+
+
+@media screen and (max-width: 412px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+#card-one {
+    position: absolute;
+    top: -100px;
+    left: -215px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.5);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: -100px;
+    left: 70px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: -100px;
+    left: 197px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.5);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-txt2 h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(145, 98, 255);
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-txt3 h2 {
+    margin-top: 30px;
+    font-size: 52px;
+    color: rgb(255, 124, 233);
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+}
+
+
+
+@media screen and (max-width: 768px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+#card-one {
+    position: absolute;
+    top: 50px;
+    left: -200px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.9);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: 50px;
+    left: 220px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.9);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: 50px;
+    left: 490px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.9);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+#finalResult {
+    font-size: 30px;
+    padding-top: 20px;
+}
+#results {
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+}
+
+
+@media screen and (max-width: 820px) {
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
+}
+#card-one {
+    position: absolute;
+    top: 50px;
+    left: -200px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 150px;
+    transform: scale(0.9);
+    z-index: 3;
+}
+#card-two {
+    position: absolute;
+    top: 50px;
+    left: 220px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.9);
+    z-index: 2;
+}
+#card-three {
+    position: absolute;
+    top: 50px;
+    left: 490px;
+    letter-spacing: 0px;
+    display: none;
+    vertical-align: middle;
+    justify-content: center;
+    margin-top: 50px;
+    *display: inline;
+    *margin: 0 20px 0 20px;
+    white-space: nowrap;
+    text-align: center;
+    transform: scale(0.9);
+    z-index: 1;
+}
+.card {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(206, 223, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt p {
+    color: rgb(155, 202, 255);
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #66b9ff;
+}
+.card-stats .stat {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats .value {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card2 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 280px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(229, 206, 255);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt2 p {
+    color: #ce85ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats2 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #b199ff;
+}
+.card-stats2 .stat2 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats2 .type2 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats2 .value2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+.card3 {
+    width: 280px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+
+    font-family: roboto;
+    border-radius: 18px;
+    background: rgb(255, 206, 248);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.card-txt3 p {
+    color: #fca0ff;
+    font-size: 40px;
+    font-weight: 300;
+}
+.card-stats3 {
+    grid-area: stats;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #f1baf4;
+}
+.card-stats3 .stat3 {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    color: white;
+}
+.card-stats3 .type3 {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.card-stats3 .value3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+#finalResult {
+    font-size: 30px;
+    padding-top: 20px;
+}
+#results {
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+}
