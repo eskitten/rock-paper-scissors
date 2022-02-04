@@ -964,7 +964,7 @@ body {
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(173,166,255,1) 50%, rgba(242,181,255,1) 100%);
 }
 .title {
-    margin-top: 120px;
+    margin-top: 200px;
     color: white;
     font-size: 50px;
     font-weight: 800;
